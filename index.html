@@ -72,31 +72,28 @@ select,input[type=text],input[type=tel]{width:100%;padding:13px;font-size:18px;b
 #rankBox{font-size:26px}
 #rankBox small{font-size:14px;color:#cbd5e1}
 #lapBox{font-size:14px;line-height:1.35}
-#quiz{position:absolute;left:50%;top:calc(128px + env(safe-area-inset-top));transform:translateX(-50%);width:min(94vw,560px);background:#0f172aee;border:2px solid var(--pri);border-radius:16px;padding:10px 12px;display:none;pointer-events:none}
+#quiz{position:absolute;left:50%;top:calc(128px + env(safe-area-inset-top));transform:translateX(-50%);width:min(94vw,720px);background:#0f172aee;border:2px solid var(--pri);border-radius:16px;padding:10px 12px;display:none;pointer-events:none}
 #quiz.show{display:block}
 .qtag{font-size:12px;color:var(--pri);font-weight:800;margin-bottom:4px}
-.qt{font-size:17px;font-weight:700;line-height:1.4}
+.qt{font-size:clamp(17px,3.1vmin,26px);font-weight:700;line-height:1.4}
 .oxrow{display:flex;gap:8px;margin-top:8px}
-.oxrow div{flex:1;padding:8px;border-radius:10px;text-align:center;font-weight:800;font-size:15px}
+.oxrow div{flex:1;padding:8px;border-radius:10px;text-align:center;font-weight:800;font-size:clamp(15px,2.7vmin,22px)}
 .oxO{background:#1d4ed8}.oxX{background:#b91c1c}
 .mc{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
-.mc div{padding:7px 8px;border-radius:10px;font-size:14px;font-weight:700;color:#111;line-height:1.3}
+.mc div{padding:7px 8px;border-radius:10px;font-size:clamp(14px,2.6vmin,21px);font-weight:700;color:#111;line-height:1.3}
 .mc div.dim,.oxrow div.dim{opacity:.25}
 .mc div.right,.oxrow div.right{outline:3px solid #fff}
 #toast{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);padding:12px 18px;border-radius:16px;font-size:20px;font-weight:900;text-align:center;display:none;pointer-events:none;max-width:90vw;box-shadow:0 10px 30px #0008}
-#driftTxt{position:absolute;left:50%;bottom:30%;transform:translateX(-50%);font-size:22px;font-weight:900;color:#38bdf8;text-shadow:0 2px 0 #000;opacity:0;transition:opacity .15s;pointer-events:none}
 #feed{position:absolute;left:10px;top:calc(62px + env(safe-area-inset-top));font-size:13px;pointer-events:none;max-width:60vw}
 #quiz.show ~ #feed{display:none}
 #feed div{background:#000a;padding:4px 8px;border-radius:8px;margin-bottom:4px}
 #count{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:120px;font-weight:900;text-shadow:0 6px 0 #0008;pointer-events:none}
-#ctrlL{position:absolute;left:12px;bottom:calc(14px + env(safe-area-inset-bottom));display:flex;gap:10px}
-#ctrlR{position:absolute;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));display:grid;grid-template-columns:auto auto;gap:10px;align-items:end;justify-items:center}
-.cbtn{width:80px;height:80px;border-radius:50%;background:#ffffff40;border:3px solid #fff8;color:#fff;font-size:32px;touch-action:none}
+#ctrlL{position:absolute;left:clamp(10px,2.5vmin,28px);bottom:calc(clamp(12px,3vmin,32px) + env(safe-area-inset-bottom));display:flex;gap:clamp(10px,3vmin,32px)}
+#ctrlR{position:absolute;right:clamp(10px,2.5vmin,28px);bottom:calc(clamp(12px,3vmin,32px) + env(safe-area-inset-bottom));display:flex;gap:clamp(10px,2.5vmin,26px);align-items:flex-end}
+.cbtn{width:clamp(84px,19vmin,170px);height:clamp(84px,19vmin,170px);border-radius:50%;background:#ffffff40;border:4px solid #fff9;color:#fff;font-size:clamp(32px,7.5vmin,68px);touch-action:none}
 .cbtn.on{background:#fffa;color:#111}
-#bItem{grid-column:2;grid-row:1;width:78px;height:78px;font-size:38px;background:#f59e0bcc}
-#bBrake{grid-column:1;grid-row:2;width:58px;height:58px;font-size:11px;letter-spacing:-1px}
-#bDrift{grid-column:2;grid-row:2;width:92px;height:92px;font-size:15px;line-height:1.1;background:#38bdf8aa}
-#bDrift.on{background:#38bdf8}
+#bItem{width:clamp(92px,21vmin,185px);height:clamp(92px,21vmin,185px);font-size:clamp(42px,9.5vmin,84px);background:#f59e0bcc}
+#bBrake{width:clamp(60px,12vmin,110px);height:clamp(60px,12vmin,110px);font-size:clamp(12px,2.6vmin,22px);letter-spacing:-1px}
 /* 교사 */
 #hostScreen{background:#2f6b2b}
 #hostMain{position:relative;flex:1}
@@ -162,7 +159,7 @@ select,input[type=text],input[type=tel]{width:100%;padding:13px;font-size:18px;b
     <div class="label">맵 선택 (맵의 단원 문제가 출제돼요)</div>
     <div id="pMaps" class="maps"></div>
     <div class="label">바퀴 수</div>
-    <select id="pLaps"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+    <select id="pLaps"><option selected>1</option><option>2</option><option>3</option></select>
     <button id="pGo" class="big">출발!</button>
     <button class="big ghost goMenu">← 처음으로</button>
   </div>
@@ -194,7 +191,6 @@ select,input[type=text],input[type=tel]{width:100%;padding:13px;font-size:18px;b
     <p id="wCount" class="sub"></p>
     <div style="text-align:left;font-size:14px;line-height:1.7;background:#0f172a;border-radius:12px;padding:12px">
       <b>🎮 조작</b> ◀ ▶ 방향 · 자동 가속 · 🎁 아이템<br>
-      <b>🌀 드리프트</b> 버튼을 누른 채 방향 전환 → 불꽃이 <span style="color:#38bdf8">파랗게</span> 되면 손을 떼기 = <b>부스터!</b><br>
       <b>⭕ O/X 갈림길</b> O는 <u>왼쪽 길</u>, X는 <u>오른쪽 길</u>. 틀리면 진흙탕!<br>
       <b>①②③④ 게이트</b> 정답 번호 차선으로 통과. 틀리면 정지·되돌아가기!
     </div>
@@ -209,7 +205,7 @@ select,input[type=text],input[type=tel]{width:100%;padding:13px;font-size:18px;b
     <div id="hostStatus">대기실</div>
     <div class="hset" id="hSet">
       <div>맵 (출제 단원):</div><div id="hMaps" class="maps mini"></div>
-      <div style="margin-top:4px">바퀴 수: <select id="hLaps"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
+      <div style="margin-top:4px">바퀴 수: <select id="hLaps"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
     </div>
     <div class="row"><button class="btnStart" id="hStart">▶ 경기 시작</button><button class="btnEnd" id="hEnd">■ 경기 종료</button></div>
     <div class="row"><button class="btnLobby" id="hLobby">↺ 대기실로 (새 경기)</button></div>
@@ -225,10 +221,9 @@ select,input[type=text],input[type=tel]{width:100%;padding:13px;font-size:18px;b
   <div id="quiz"></div>
   <div id="feed"></div>
   <div id="toast"></div>
-  <div id="driftTxt">🔥 드리프트 부스터!</div>
-  <div id="count"></div>
+    <div id="count"></div>
   <div id="ctrlL"><button class="cbtn" id="bL">◀</button><button class="cbtn" id="bR">▶</button></div>
-  <div id="ctrlR"><button class="cbtn" id="bItem">·</button><button class="cbtn" id="bBrake">브레이크</button><button class="cbtn" id="bDrift">🌀<br>드리프트</button></div>
+  <div id="ctrlR"><button class="cbtn" id="bBrake">브레이크</button><button class="cbtn" id="bItem">·</button></div>
 </div>
 
 <div id="cer"><canvas id="cerCv"></canvas><div id="cerTop"></div><div id="cerLabels"></div><div id="cerQuiz"></div><div class="row" id="cerBtns"></div></div>
@@ -351,6 +346,155 @@ const QBANK = {
     ]}
 };
 
+/* --- 추가 문항 (4차) --- */
+const QEXTRA={
+  elec:{
+    ox:[
+      ['물체가 전기를 띠는 현상을 대전이라고 한다.',true],
+      ['원자에서 원자핵은 (+)전하, 전자는 (−)전하를 띤다.',true],
+      ['마찰 전기가 생길 때 이동하는 것은 원자핵이다.',false],
+      ['전자를 얻은 물체는 (−)전기를 띤다.',true],
+      ['서로 다른 두 물체를 마찰하면 두 물체는 같은 종류의 전기를 띤다.',false],
+      ['다른 종류의 전기를 띤 물체끼리는 서로 끌어당긴다.',true],
+      ['정전기 유도는 대전체를 가까이 할 때 금속 속 전자가 이동하여 일어난다.',true],
+      ['검전기를 이용하면 물체가 대전되었는지 알 수 있다.',true],
+      ['대전체를 검전기의 금속판에 가까이 하면 금속박이 오므라든다.',false],
+      ['전류는 전자의 흐름 때문에 생긴다.',true],
+      ['전류의 세기 단위는 A(암페어)이다.',true],
+      ['전류계는 회로에 병렬로 연결한다.',false],
+      ['전압계는 측정하려는 부분에 병렬로 연결한다.',true],
+      ['저항이 클수록 전류가 흐르기 어렵다.',true],
+      ['같은 재질의 니크롬선은 굵을수록 저항이 크다.',false],
+      ['전압이 일정할 때 저항이 커지면 전류의 세기는 작아진다.',true],
+      ['직렬로 연결된 저항에는 각각 같은 세기의 전류가 흐른다.',true],
+      ['저항을 병렬로 많이 연결할수록 전체 저항은 작아진다.',true],
+      ['직렬로 연결된 전구 중 하나를 빼면 나머지 전구도 꺼진다.',true],
+      ['병렬로 연결된 전구 중 하나가 끊어지면 나머지 전구도 모두 꺼진다.',false],
+      ['전자석은 코일 속에 철심을 넣고 전류를 흐르게 하여 만든다.',true],
+      ['코일에 흐르는 전류가 셀수록 전자석의 세기가 세진다.',true],
+      ['전류의 방향을 바꾸면 자기장 속 도선이 받는 힘의 방향도 바뀐다.',true],
+      ['자석의 같은 극끼리는 서로 밀어낸다.',true],
+      ['나침반 자침의 N극이 가리키는 방향이 그 지점의 자기장 방향이다.',true],
+      ['자기장 속 도선이 받는 힘은 전류와 자기장이 나란할 때 가장 크다.',false],
+      ['전류는 전지의 (+)극에서 나와 (−)극으로 들어간다.',true],
+      ['도선 속 전자는 전지의 (−)극 쪽에서 (+)극 쪽으로 이동한다.',true],
+      ['1 A의 전류는 1 mA보다 약하다.',false],
+      ['저항의 단위 Ω은 \'옴\'이라고 읽는다.',true],
+      ['물 흐름 모형에서 물의 높이 차는 전압에 비유된다.',true]
+    ],
+    mc:[
+      ['저항 2 Ω에 4 A의 전류가 흐를 때 걸린 전압은?',['8 V','2 V','6 V','0.5 V']],
+      ['전압 12 V, 전류 3 A일 때 저항은?',['4 Ω','36 Ω','9 Ω','15 Ω']],
+      ['저항 5 Ω에 10 V의 전압을 걸었을 때 전류는?',['2 A','50 A','0.5 A','15 A']],
+      ['전류계를 연결하는 올바른 방법은?',['회로에 직렬로 연결','회로에 병렬로 연결','전지에만 연결','어떻게 연결해도 같다']],
+      ['전압계를 연결하는 올바른 방법은?',['측정할 부분에 병렬로 연결','회로에 직렬로 연결','전지와 직렬로만 연결','어떻게 연결해도 같다']],
+      ['물체가 전기를 띠는 현상을 무엇이라고 하는가?',['대전','저항','전류','방전']],
+      ['마찰 전기가 생길 때 이동하는 입자는?',['전자','원자핵','양성자','중성자']],
+      ['대전되지 않은 금속 막대에 (−)대전체를 가까이 하면 대전체와 가까운 쪽은?',['(+)전하를 띤다','(−)전하를 띤다','전하를 띠지 않는다','금속 전체가 (−)전하를 띤다']],
+      ['다음 중 전류의 자기 작용을 이용한 것이 아닌 것은?',['전기다리미','전동기','전자석','스피커']],
+      ['전자석의 세기를 강하게 하는 방법은?',['코일을 감은 수를 늘린다','전류를 약하게 한다','철심을 뺀다','코일을 푼다']],
+      ['자석 주위에 자기력이 작용하는 공간은?',['자기장','전기장','중력장','진공']],
+      ['가정의 전기 기구를 병렬로 연결하는 까닭은?',['같은 전압이 걸리고 따로 켜고 끌 수 있어서','전체 저항이 커져서','모든 기구에 같은 전류가 흘러서','전기가 덜 들어서']],
+      ['저항의 직렬 연결에 대한 설명으로 옳은 것은?',['각 저항에 흐르는 전류가 같다','각 저항에 걸리는 전압이 항상 같다','하나를 빼도 나머지에 전류가 흐른다','많이 연결할수록 전체 저항이 작아진다']],
+      ['1 A는 몇 mA인가?',['1000 mA','10 mA','100 mA','0.001 mA']],
+      ['같은 재질의 니크롬선 중 저항이 가장 큰 것은?',['길고 가는 것','짧고 굵은 것','길고 굵은 것','짧고 가는 것']],
+      ['도선 속에서 전자가 이동하는 방향은?',['전지의 (−)극 쪽 → (+)극 쪽','전지의 (+)극 쪽 → (−)극 쪽','이동하지 않는다','양쪽으로 번갈아 이동']]
+    ]},
+  resp:{
+    ox:[
+      ['호흡계는 코, 기관, 기관지, 폐 등으로 이루어져 있다.',true],
+      ['폐는 수많은 폐포로 이루어져 있다.',true],
+      ['폐포는 모세 혈관으로 둘러싸여 있다.',true],
+      ['숨을 내쉴 때 가로막은 내려간다.',false],
+      ['숨을 들이쉴 때 폐 속 압력은 대기압보다 낮아진다.',true],
+      ['숨을 내쉴 때 흉강의 부피는 커진다.',false],
+      ['갈비뼈와 가로막의 움직임으로 흉강의 부피가 변한다.',true],
+      ['폐포에서의 기체 교환은 에너지를 사용하여 강제로 일어난다.',false],
+      ['조직 세포에서 산소는 모세 혈관에서 세포로 이동한다.',true],
+      ['들숨에는 날숨보다 산소가 많이 들어 있다.',true],
+      ['세포 호흡 결과 이산화 탄소와 물이 생성된다.',true],
+      ['세포 호흡으로 얻은 에너지는 생명 활동에 쓰인다.',true],
+      ['배설은 노폐물을 오줌이나 날숨 등으로 몸 밖으로 내보내는 과정이다.',true],
+      ['배설계는 콩팥, 오줌관, 방광, 요도 등으로 이루어져 있다.',true],
+      ['이산화 탄소는 주로 폐를 통해 몸 밖으로 나간다.',true],
+      ['네프론은 사구체, 보먼주머니, 세뇨관으로 이루어져 있다.',true],
+      ['여과는 세뇨관에서 모세 혈관으로 물질이 이동하는 과정이다.',false],
+      ['재흡수는 세뇨관에서 모세 혈관으로 필요한 물질이 다시 흡수되는 과정이다.',true],
+      ['분비는 모세 혈관에서 세뇨관으로 노폐물이 이동하는 과정이다.',true],
+      ['요소는 콩팥에서 만들어진다.',false],
+      ['사구체는 모세 혈관이 실뭉치처럼 뭉쳐 있는 구조이다.',true],
+      ['건강한 사람의 오줌에는 포도당이 거의 들어 있지 않다.',true],
+      ['탄수화물이 분해되면 암모니아가 생성된다.',false],
+      ['오줌은 요도를 통해 몸 밖으로 나간다.',true],
+      ['대변을 내보내는 것은 배설에 해당한다.',false],
+      ['가로막이 내려가면 흉강의 부피가 커진다.',true]
+    ],
+    mc:[
+      ['숨을 들이쉴 때 일어나는 변화로 옳은 것은?',['흉강의 부피가 커진다','가로막이 올라간다','갈비뼈가 내려간다','폐 속 압력이 높아진다']],
+      ['폐포에서 모세 혈관으로 이동하는 기체는?',['산소','이산화 탄소','질소','수소']],
+      ['조직 세포에서 모세 혈관으로 이동하는 기체는?',['이산화 탄소','산소','질소','수소']],
+      ['기체 교환이 일어나는 원리는?',['확산','여과','증발','응결']],
+      ['간에서 암모니아가 바뀌어 만들어지는 물질은?',['요소','포도당','아미노산','이산화 탄소']],
+      ['콩팥에서 만들어진 오줌이 방광으로 이동하는 통로는?',['오줌관','요도','세뇨관','기관지']],
+      ['오줌을 만드는 콩팥의 기본 단위는?',['네프론','폐포','뉴런','융털']],
+      ['재흡수가 일어나는 방향은?',['세뇨관 → 모세 혈관','사구체 → 보먼주머니','방광 → 요도','폐포 → 모세 혈관']],
+      ['여과가 일어나는 방향은?',['사구체 → 보먼주머니','세뇨관 → 모세 혈관','방광 → 요도','콩팥 → 오줌관']],
+      ['세포 호흡 결과 생성되는 물질은?',['이산화 탄소와 물','포도당과 산소','요소와 산소','질소와 물']],
+      ['다음 중 배설에 해당하는 것은?',['오줌으로 요소를 내보낸다','대변을 내보낸다','침을 분비한다','음식물을 소화한다']],
+      ['날숨에 들숨보다 많이 들어 있는 기체는?',['이산화 탄소','산소','수소','헬륨']],
+      ['호흡 운동 모형에서 고무막이 나타내는 것은?',['가로막','폐','기관','갈비뼈']],
+      ['호흡 운동 모형에서 고무풍선이 나타내는 것은?',['폐','가로막','흉강','기관']],
+      ['분해될 때 질소가 포함된 노폐물이 생기는 영양소는?',['단백질','탄수화물','지방','물']]
+    ]},
+  star:{
+    ox:[
+      ['연주 시차는 6개월 간격으로 측정한 시차의 1/2이다.',true],
+      ['연주 시차의 단위로 ″(초)를 사용한다.',true],
+      ['멀리 있는 별일수록 연주 시차가 작다.',true],
+      ['연주 시차가 0.1″인 별까지의 거리는 10 pc이다.',true],
+      ['연주 시차는 별까지의 거리에 비례한다.',false],
+      ['아주 멀리 있는 별은 연주 시차를 측정하기 어렵다.',true],
+      ['1 pc은 약 3.26광년이다.',true],
+      ['1광년은 빛이 1년 동안 이동하는 거리이다.',true],
+      ['별의 밝기는 거리의 제곱에 반비례한다.',true],
+      ['맨눈으로 볼 수 있는 가장 어두운 별은 대략 6등급이다.',true],
+      ['등급이 1등급 작아지면 밝기는 약 2.5배 밝아진다.',true],
+      ['0등급이나 −1등급처럼 0이나 음수인 등급도 있다.',true],
+      ['겉보기 등급은 우리 눈에 보이는 별의 밝기를 등급으로 나타낸 것이다.',true],
+      ['절대 등급은 별을 10 pc 거리에 두었다고 가정했을 때의 밝기이다.',true],
+      ['태양은 겉보기 등급이 매우 작은(밝은) 별이다.',true],
+      ['태양은 절대 등급으로 비교해도 가장 밝은 별이다.',false],
+      ['겉보기 등급이 절대 등급보다 작은 별은 10 pc보다 가까이 있다.',true],
+      ['별은 표면 온도가 높을수록 붉은색을 띤다.',false],
+      ['적색 별은 청색 별보다 표면 온도가 낮다.',true],
+      ['태양은 황색을 띠는 별이다.',true],
+      ['별의 색이 다른 까닭은 표면 온도가 다르기 때문이다.',true],
+      ['별까지의 거리가 1/2로 줄면 밝기는 4배가 된다.',true],
+      ['같은 별이라도 가까이 있을수록 겉보기 등급이 작아진다.',true],
+      ['절대 등급은 별까지의 거리에 따라 달라진다.',false],
+      ['연주 시차를 이용하면 모든 별까지의 거리를 측정할 수 있다.',false],
+      ['표면 온도가 높은 순서대로 별의 색은 청색 → 백색 → 황색 → 주황색 → 적색이다.',true]
+    ],
+    mc:[
+      ['연주 시차가 0.2″인 별까지의 거리는?',['5 pc','0.2 pc','2 pc','20 pc']],
+      ['거리가 20 pc인 별의 연주 시차는?',['0.05″','20″','0.5″','2″']],
+      ['별까지의 거리가 2배가 되면 밝기는?',['1/4','1/2','2배','4배']],
+      ['1등급 별은 6등급 별보다 약 몇 배 밝은가?',['100배','5배','10배','2.5배']],
+      ['3등급 별은 4등급 별보다 약 몇 배 밝은가?',['약 2.5배','1배','5배','100배']],
+      ['겉보기 등급이 다음과 같을 때 가장 밝게 보이는 별은?',['−1등급','0등급','2등급','5등급']],
+      ['표면 온도가 가장 낮은 별의 색은?',['적색','청색','백색','황색']],
+      ['태양의 색은?',['황색','청색','적색','백색']],
+      ['별을 10 pc 거리에 두었을 때의 밝기를 나타낸 등급은?',['절대 등급','겉보기 등급','연주 등급','표준 등급']],
+      ['겉보기 등급과 절대 등급이 모두 3등급인 별까지의 거리는?',['10 pc','1 pc','3 pc','100 pc']],
+      ['겉보기 등급 −1, 절대 등급 2인 별의 위치는?',['10 pc보다 가깝다','10 pc보다 멀다','정확히 10 pc','알 수 없다']],
+      ['연주 시차가 생기는 까닭은?',['지구가 공전하기 때문','지구가 자전하기 때문','별이 움직이기 때문','달이 공전하기 때문']],
+      ['연주 시차와 별까지의 거리의 관계는?',['반비례한다','비례한다','관계없다','제곱에 비례한다']],
+      ['1광년의 뜻은?',['빛이 1년 동안 이동한 거리','빛이 1초 동안 이동한 거리','지구가 1년 동안 이동한 거리','태양까지의 거리']],
+      ['별의 겉보기 밝기를 결정하는 요인으로 옳게 짝지은 것은?',['별이 내는 빛의 양과 별까지의 거리','별의 질량과 나이','별의 이름과 위치','관측자의 키와 시력']]
+    ]}
+};
+for(const k in QEXTRA){QBANK[k].ox.push(...QEXTRA[k].ox);QBANK[k].mc.push(...QEXTRA[k].mc);}
+
 /* =========================================================
    ③ 커스텀 (캐릭터·차체·바퀴) — 성능 차이는 ±5% 안팎
    ========================================================= */
@@ -372,7 +516,7 @@ const KARTS=[
 ];
 const WHEELS=[
   {n:'기본 바퀴',e:'⚫',d:'무난함',st:{spd:0,acc:0,hand:0,drift:0,off:0},style:'std'},
-  {n:'레이싱 슬릭',e:'🏁',d:'드리프트↑ 진흙↓',st:{spd:0.025,acc:-0.03,hand:0,drift:0.1,off:-0.08},style:'slick'},
+  {n:'레이싱 슬릭',e:'🏁',d:'최고속도↑ 진흙↓',st:{spd:0.025,acc:-0.03,hand:0,drift:0.1,off:-0.08},style:'slick'},
   {n:'오프로드',e:'⛰️',d:'진흙·잔디에 강함',st:{spd:-0.02,acc:0.02,hand:-0.02,drift:-0.05,off:0.3},style:'off'},
   {n:'미니 바퀴',e:'🔘',d:'가속·핸들링↑',st:{spd:-0.02,acc:0.06,hand:0.05,drift:0.05,off:0},style:'mini'}
 ];
@@ -389,27 +533,18 @@ const cfgSum=c=>`${CHARS[c.ch].e} ${CHARS[c.ch].n} · ${KARTS[c.k].n} · ${WHEEL
 const HW=120,STEP=8,MAXV=280,ACC=240,TURN=2.5,DRIFT_READY=0.45;
 const MAPS={
   elec:{name:'발전소 서킷',e:'⚡',unit:'elec',
-    segs:[['S',1800],['L',90,300],['S',900],['L',90,300],['S',400],['R',90,200],['S',300],['L',90,250],['S',1600],['L',90,300],['S',1650],['L',90,300],['S',650]],
-    zones:s=>[{id:'ox1',type:'ox',show:s(0)+150,s0:s(0)+850,s1:s(0)+1650},{id:'g1',type:'mc',show:s(0)+1720,stripe:s(2)+400,s:s(2)+820,pen:'stop'},
-      {id:'ox2',type:'ox',show:s(6)+60,s0:s(8)+300,s1:s(8)+1400},{id:'g2',type:'mc',show:s(9)+300,stripe:s(10)+1030,s:s(10)+1500,pen:'back'}],
-    boxes:s=>[s(0)+420,s(4)+200,s(8)+1500,s(10)+250,s(12)+200],
+    pts:[[0,0],[1000,0],[2000,0],[2800,-250],[3200,-900],[2900,-1500],[2300,-1700],[1900,-2300],[2300,-2900],[3100,-3000],[3900,-2600],[4400,-1900],[4700,-1100],[5300,-600],[5400,200],[4900,800],[4200,750],[3600,1250],[2900,950],[2200,1400],[1500,1050],[900,1450],[200,1500],[-400,1200],[-800,600],[-700,100]],
     th:{sky:'#a9cbe8',ground:'#567d47',road:'#474d59',curb:['#facc15','#1f2937'],dash:'#d1d5db',hemiG:'#4d7c3a',decor:'pylon',g2d:'#3f7d3a',deco2d:'#64748b'}},
   resp:{name:'인체 탐험 서킷',e:'🫁',unit:'resp',
-    segs:[['S',2000],['R',90,300],['S',1300],['R',90,300],['S',300],['R',90,200],['S',300],['L',90,200],['S',2200],['R',90,300],['S',600],['R',90,300],['S',900]],
-    zones:s=>[{id:'ox1',type:'ox',show:s(0)+150,s0:s(0)+800,s1:s(0)+1700},{id:'g1',type:'mc',show:s(0)+1780,stripe:s(2)+500,s:s(2)+950,pen:'stop'},
-      {id:'ox2',type:'ox',show:s(6)+20,s0:s(8)+400,s1:s(8)+1500},{id:'g2',type:'mc',show:s(8)+1650,stripe:s(10)+150,s:s(10)+540,pen:'back'}],
-    boxes:s=>[s(0)+400,s(2)+150,s(4)+150,s(8)+1900,s(12)+150],
+    pts:[[0,0],[1000,0],[1900,0],[2600,-400],[2600,-1100],[1900,-1400],[1200,-1300],[700,-1800],[900,-2500],[1700,-2700],[2500,-2500],[3200,-2900],[4000,-2900],[4600,-2400],[4500,-1700],[3900,-1300],[3800,-600],[4400,-200],[4500,500],[4000,1100],[3200,1100],[2600,700],[1900,1000],[1300,1500],[500,1400],[-300,1100],[-700,500],[-600,100]],
     th:{sky:'#fde2e4',ground:'#e9a0b3',road:'#7d4655',curb:['#ffffff','#e11d48'],dash:'#fecdd3',hemiG:'#e88fa8',decor:'cell',g2d:'#c97a8f',deco2d:'#fb7185'}},
   star:{name:'우주 서킷',e:'🌌',unit:'star',
-    segs:[['S',1500],['L',90,300],['S',500],['R',90,250],['S',300],['L',90,250],['S',900],['L',90,300],['S',3100],['L',90,300],['S',500],['R',40,350],['L',80,350],['R',40,350],['S',500.09878078106857],['L',90,300],['S',799.978589866538]],
-    zones:s=>[{id:'ox1',type:'ox',show:s(0)+150,s0:s(0)+700,s1:s(0)+1400},{id:'g1',type:'mc',show:s(4),stripe:s(6)+400,s:s(6)+820,pen:'stop'},
-      {id:'ox2',type:'ox',show:s(8)+100,s0:s(8)+900,s1:s(8)+2000},{id:'g2',type:'mc',show:s(10),stripe:s(14)+80,s:s(14)+450,pen:'back'}],
-    boxes:s=>[s(0)+350,s(2)+250,s(8)+2500,s(10)+250,s(16)+150],
+    pts:[[0,0],[1000,0],[2000,0],[3000,-100],[3900,-500],[4400,-1300],[4300,-2200],[3700,-2900],[2800,-3200],[1800,-3100],[1100,-2600],[900,-1900],[1300,-1400],[2000,-1400],[2700,-1700],[3100,-1200],[2700,-650],[1900,-600],[1100,-800],[400,-1300],[-200,-2100],[-900,-2400],[-1500,-1900],[-1500,-1100],[-1100,-500],[-600,-100]],
     th:{sky:'#0b1026',ground:'#2b2750',road:'#3b4166',curb:['#60a5fa','#f8fafc'],dash:'#a5b4fc',hemiG:'#3b3570',decor:'star',g2d:'#25214a',deco2d:'#fde68a'}}
 };
-let MAP='elec',PX=[],PY=[],PA=[],SS=[],SEGSTART=[],L=0,N=0,ZONES=[],BOXES=[],TREES=[],ROAD=null,DECOR2D=[];
+let MAP='elec',PX=[],PY=[],PA=[],SS=[],L=0,N=0,ZONES=[],BOXES=[],TREES=[],ROAD=null,DECOR2D=[];
 const BMIN={x:0,y:0},BMAX={x:0,y:0};
-const seg=i=>SEGSTART[i];
+const QDIST=2200;   // 문제가 뜬 뒤 정답 지점까지 거리(px)
 const angN=a=>{while(a>Math.PI)a-=2*Math.PI;while(a<-Math.PI)a+=2*Math.PI;return a;};
 const clamp=(v,a,b)=>v<a?a:v>b?b:v;
 function idxAt(s){s=((s%L)+L)%L;let lo=0,hi=N-1;while(lo<hi){const m=(lo+hi+1)>>1;if(SS[m]<=s)lo=m;else hi=m-1;}return lo;}
@@ -426,21 +561,39 @@ function stripPath(s0,s1,dA,dB){const p=new Path2D(),pts=[];for(let s=s0;s<s1;s+
   for(let k=pts.length-1;k>=0;k--){const q=pointAt(pts[k],dB);p.lineTo(q.x,q.y);}p.closePath();return p;}
 const LANECOL=['#ef4444','#3b82f6','#22c55e','#eab308'];
 const NUMS=['①','②','③','④'];
+function catmull(P,n){const out=[],m=P.length,tj=(t,a,b)=>t+Math.sqrt(Math.hypot(b[0]-a[0],b[1]-a[1]));
+  for(let i=0;i<m;i++){const p0=P[(i-1+m)%m],p1=P[i],p2=P[(i+1)%m],p3=P[(i+2)%m],t0=0,t1=tj(t0,p0,p1),t2=tj(t1,p1,p2),t3=tj(t2,p2,p3);
+    for(let k=0;k<n;k++){const t=t1+(t2-t1)*k/n,lp=(a,b,ta,tb)=>[(tb-t)/(tb-ta)*a[0]+(t-ta)/(tb-ta)*b[0],(tb-t)/(tb-ta)*a[1]+(t-ta)/(tb-ta)*b[1]];
+      const A1=lp(p0,p1,t0,t1),A2=lp(p1,p2,t1,t2),A3=lp(p2,p3,t2,t3),B1=lp(A1,A2,t0,t2),B2=lp(A2,A3,t1,t3);out.push(lp(B1,B2,t1,t2));}}
+  return out;}
 function buildTrack(id){
   if(!MAPS[id])id='elec';MAP=id;const M=MAPS[id];
-  PX=[];PY=[];PA=[];SS=[];SEGSTART=[];
-  let x=0,y=0,a=0,s=0;const push=()=>{PX.push(x);PY.push(y);PA.push(a);SS.push(s);};push();
-  for(const g of M.segs){SEGSTART.push(s);
-    if(g[0]==='S'){const n=Math.max(1,Math.ceil(g[1]/STEP)),ds=g[1]/n;for(let i=0;i<n;i++){x+=Math.cos(a)*ds;y+=Math.sin(a)*ds;s+=ds;push();}}
-    else{const sg=g[0]==='L'?-1:1,r=g[2],len=g[1]*Math.PI/180*r,n=Math.ceil(len/STEP),ds=len/n,dth=sg*ds/r;
-      for(let i=0;i<n;i++){const am=a+dth/2;x+=Math.cos(am)*ds;y+=Math.sin(am)*ds;a+=dth;s+=ds;push();}}}
-  PX.pop();PY.pop();PA.pop();SS.pop();L=s;N=PX.length;
-  ZONES=M.zones(seg);
-  BOXES=[];M.boxes(seg).forEach(bs=>[-78,-26,26,78].forEach(d=>BOXES.push(pointAt(bs,d))));
+  const D=catmull(M.pts,60);D.push(D[0]);const cum=[0];
+  for(let i=1;i<D.length;i++)cum.push(cum[i-1]+Math.hypot(D[i][0]-D[i-1][0],D[i][1]-D[i-1][1]));
+  const Lr=cum[cum.length-1],n=Math.round(Lr/STEP),st=Lr/n;
+  PX=[];PY=[];PA=[];SS=[];let j=0;
+  for(let k=0;k<n;k++){const sv=k*st;while(cum[j+1]<sv)j++;const f=(sv-cum[j])/(cum[j+1]-cum[j]);
+    PX.push(D[j][0]+(D[j+1][0]-D[j][0])*f);PY.push(D[j][1]+(D[j+1][1]-D[j][1])*f);SS.push(sv);}
+  N=n;L=Lr;
+  for(let i=0;i<N;i++){const a=(i+1)%N,b=(i-1+N)%N;PA.push(Math.atan2(PY[a]-PY[b],PX[a]-PX[b]));}
+  // 문제 구간 6개: 곡률이 완만한 곳을 골라 배치
+  const K=PA.map((_,i)=>Math.abs(angN(PA[(i+4)%N]-PA[(i-4+N)%N]))/(8*st));
+  const cost=(a,b)=>{let m=0;for(let x=Math.floor(a/st);x<=b/st;x++)m=Math.max(m,K[((x%N)+N)%N]);return m;};
+  const types=['ox','mc','ox','mc','ox','mc'],pens=['stop','back','stop'],first=2450,last=L-1600,gap=(last-first)/5;
+  ZONES=[];let prevEnd=60;
+  types.forEach((t,k)=>{const tgt=first+k*gap;let best=null,bc=1e9;
+    for(let off=-300;off<=300;off+=50){const dec=tgt+off;if(dec-QDIST<prevEnd+150||dec>last)continue;
+      const c=t==='ox'?cost(dec-100,dec+800):cost(dec-450,dec+100);if(c<bc){bc=c;best=dec;}}
+    if(best===null)best=Math.max(tgt,prevEnd+150+QDIST);
+    const z=t==='ox'?{id:'z'+k,type:'ox',show:best-QDIST,s0:best,s1:best+800}:{id:'z'+k,type:'mc',show:best-QDIST,stripe:best-420,s:best,pen:pens[(k-1)/2|0]};
+    ZONES.push(z);prevEnd=t==='ox'?z.s1:z.s;});
+  const rows=[1100];ZONES.forEach(z=>{const e=(z.type==='ox'?z.s1:z.s)+700;if(e<L-700)rows.push(e);});
+  BOXES=[];rows.forEach(bs=>[-78,-26,26,78].forEach(d=>BOXES.push(pointAt(bs,d))));
+
   BMIN.x=BMIN.y=1e9;BMAX.x=BMAX.y=-1e9;
   for(let i=0;i<N;i++){BMIN.x=Math.min(BMIN.x,PX[i]);BMIN.y=Math.min(BMIN.y,PY[i]);BMAX.x=Math.max(BMAX.x,PX[i]);BMAX.y=Math.max(BMAX.y,PY[i]);}
   TREES=[];let seed=7+id.length*31;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
-  for(let k=0;k<420&&TREES.length<170;k++){const tx=BMIN.x-500+rnd()*(BMAX.x-BMIN.x+1000),ty=BMIN.y-500+rnd()*(BMAX.y-BMIN.y+1000);
+  for(let k=0;k<700&&TREES.length<240;k++){const tx=BMIN.x-500+rnd()*(BMAX.x-BMIN.x+1000),ty=BMIN.y-500+rnd()*(BMAX.y-BMIN.y+1000);
     const r=locate(tx,ty,-1);if(Math.hypot(tx-PX[r.i],ty-PY[r.i])>HW+90)TREES.push({x:tx,y:ty,r:22+rnd()*22,k:rnd()});}
   ROAD=new Path2D();for(let i=0;i<N;i++)i?ROAD.lineTo(PX[i],PY[i]):ROAD.moveTo(PX[i],PY[i]);ROAD.closePath();
   DECOR2D=[];
@@ -468,7 +621,6 @@ function fmtT(ms){if(!ms)return '-';const s=ms/1000,m=Math.floor(s/60);return m+
 let toastT=0;
 function toast(html,bg='#111827',ms=1800){const t=$('#toast');t.innerHTML=html;t.style.background=bg;t.style.color=bg==='#fde047'?'#111':'#fff';t.style.display='block';clearTimeout(toastT);toastT=setTimeout(()=>t.style.display='none',ms);}
 function feed(txt){const f=$('#feed'),d=document.createElement('div');d.textContent=txt;f.prepend(d);while(f.children.length>3)f.lastChild.remove();setTimeout(()=>d.remove(),3500);}
-let driftTxtT=0;function driftFlash(){const d=$('#driftTxt');d.style.opacity=1;clearTimeout(driftTxtT);driftTxtT=setTimeout(()=>d.style.opacity=0,500);}
 function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
 
 function drawQ(type){
@@ -497,27 +649,19 @@ class Car{
     const S=this.st;
     if(this.spin>0){this.spin-=dt;this.spinVis+=dt*14;this.drifting=false;}else this.spinVis=0;
     for(const k of ['boost','slow','shield'])if(this[k]>0)this[k]=Math.max(0,this[k]-dt);
-    // 드리프트 시작/종료
-    if(!this.drifting&&inp.drift&&inp.steer&&this.v>110&&this.spin<=0){this.drifting=true;this.driftDir=Math.sign(inp.steer);this.driftT=0;}
-    if(this.drifting&&(!inp.drift||this.v<70)){
-      if(this.driftT>=DRIFT_READY){this.boost=Math.max(this.boost,0.5);if(this===G.me)driftFlash();}
-      this.drifting=false;}
-    if(this.drifting)this.driftT+=dt*S.drift;
     let m=S.spd*this.skill;
     if(this.boost>0)m*=1.55;
     if(this.slow>0)m*=0.55;
     if(this.mud)m*=0.38+0.3*S.off;
     if(Math.abs(this.d)>HW)m*=0.5+0.4*S.off;
-    if(this.drifting)m*=0.95;
     if(this.fin)m=Math.min(m,0.45);
     const target=this.spin>0?0:MAXV*m*(inp.brake?0.25:1),dv=target-this.v;
     this.v+=dv>0?Math.min(dv,ACC*S.acc*dt*(this.boost>0?2.4:1)):Math.max(dv,-ACC*(this.spin>0?4:2.2)*dt);
     if(this.spin<=0){
-      if(this.drifting){const k=clamp(0.7+0.5*inp.steer*this.driftDir,0.3,1.2);this.a+=this.driftDir*TURN*S.hand*1.05*k*dt;}
-      else{this.a+=inp.steer*TURN*S.hand*dt*Math.min(1,this.v/90);
-        if(inp.assist&&!inp.steer&&this.i>=0)this.a+=angN(PA[this.i]-this.a)*Math.min(1,dt*2);}
+      this.a+=inp.steer*TURN*S.hand*dt*Math.min(1,this.v/90);
+      if(inp.assist&&!inp.steer&&this.i>=0)this.a+=angN(PA[this.i]-this.a)*Math.min(1,dt*2);
     }
-    this.va+=angN(this.a-this.va)*Math.min(1,dt*(this.drifting?2.0:9));   // 미끄러짐
+    this.va+=angN(this.a-this.va)*Math.min(1,dt*9);
     this.x+=Math.cos(this.va)*this.v*dt;this.y+=Math.sin(this.va)*this.v*dt;
     this.relocate();
   }
@@ -531,7 +675,7 @@ class Car{
     this.P=this.lap*L+this.s;
   }
 }
-const fxOf=c=>(c.spin>0?'s':'')+(c.shield>0?'h':'')+(c.boost>0?'b':'')+(c.mud?'m':'')+(c.drifting?(c.driftT>=DRIFT_READY?'D':'d'):'');
+const fxOf=c=>(c.spin>0?'s':'')+(c.shield>0?'h':'')+(c.boost>0?'b':'')+(c.mud?'m':'');
 
 function standings(){
   const arr=[];
@@ -619,7 +763,7 @@ function warpBack(c,dist){let s=c.s-dist;if(s<0){s+=L;c.lap--;}c.mud=false;c.inO
    ⑦ 레이스 진행
    ========================================================= */
 const KEYS={},BTN={};
-function playerInput(){let st=0;if(KEYS.l||BTN.bL)st-=1;if(KEYS.r||BTN.bR)st+=1;return {steer:st,brake:!!(KEYS.d||BTN.bBrake),drift:!!(KEYS.dr||BTN.bDrift),assist:true};}
+function playerInput(){let st=0;if(KEYS.l||BTN.bL)st-=1;if(KEYS.r||BTN.bR)st+=1;return {steer:st,brake:!!(KEYS.d||BTN.bBrake),assist:true};}
 function botInput(c){
   const t=now();if(t>c.aiT&&!(c.quiz&&!c.quiz.done)){c.aiOff=(Math.random()*2-1)*70;c.aiT=t+2000+Math.random()*3000;}
   const tp=pointAt(c.s+110+c.v*0.25,c.aiOff),want=Math.atan2(tp.y-c.y,tp.x-c.x);
@@ -750,7 +894,7 @@ function buildKart(cfg){
 }
 function poseKart(g,x,y,a,spinVis,fx,t){
   const u=g.userData;if(u.tag&&G.me)u.tag.visible=(x-G.me.x)**2+(y-G.me.y)**2<650*650;g.position.set(x,0,y);g.rotation.y=-a;u.body.rotation.y=-spinVis;
-  const dr=fx.includes('d')||fx.includes('D');
+  const dr=false;
   u.body.rotation.x=dr?Math.sin(t*0.02)*0.04:0;
   u.flame.visible=fx.includes('b');if(u.flame.visible)u.flame.scale.set(1,0.8+Math.random()*0.5,1);
   u.sparks.forEach(s=>{s.visible=dr;s.scale.setScalar(0.7+Math.random()*0.7);});
@@ -970,7 +1114,7 @@ function renderGarageUI(){
   else h=COLORS.map(x=>`<button class="opt col ${c.c===x?'sel':''}" data-v="${x}" style="background:${x}"></button>`).join('');
   $('#gOpts').innerHTML=h;
   const S=statsOf(c.k,c.w),bar=(n,v,lo,hi)=>`<div class="stat"><span>${n}</span><div class="bar"><i style="width:${clamp((v-lo)/(hi-lo)*100,6,100)}%"></i></div></div>`;
-  $('#gStats').innerHTML=bar('속도',S.spd,0.85,1.1)+bar('가속',S.acc,0.75,1.25)+bar('핸들링',S.hand,0.8,1.2)+bar('드리프트',S.drift,0.8,1.25)+bar('오프로드',1+S.off,0.85,1.35);
+  $('#gStats').innerHTML=bar('속도',S.spd,0.85,1.1)+bar('가속',S.acc,0.75,1.25)+bar('핸들링',S.hand,0.8,1.2)+bar('오프로드',1+S.off,0.85,1.35);
 }
 $('.tabs').onclick=e=>{const t=e.target.dataset.t;if(t){G.gTab=t;renderGarageUI();}};
 $('#gOpts').onclick=e=>{const b=e.target.closest('.opt');if(!b)return;const v=b.dataset.v;
@@ -1002,10 +1146,9 @@ requestAnimationFrame(frame);
 const isK=(e,...ks)=>ks.includes(e.key);
 addEventListener('keydown',e=>{
   if(isK(e,'ArrowLeft','a'))KEYS.l=1;if(isK(e,'ArrowRight','d'))KEYS.r=1;if(isK(e,'ArrowDown','s'))KEYS.d=1;
-  if(isK(e,' ','Shift')){KEYS.dr=1;if(e.key===' ')e.preventDefault();}
-  if(isK(e,'x','X','Enter','ArrowUp')&&G.me&&G.running){e.preventDefault();useItem(G.me);}});
-addEventListener('keyup',e=>{if(isK(e,'ArrowLeft','a'))KEYS.l=0;if(isK(e,'ArrowRight','d'))KEYS.r=0;if(isK(e,'ArrowDown','s'))KEYS.d=0;if(isK(e,' ','Shift'))KEYS.dr=0;});
-for(const id of ['bL','bR','bBrake','bDrift']){const b=$('#'+id);
+  if(isK(e,' ','x','X','Enter','ArrowUp')&&G.me&&G.running){e.preventDefault();useItem(G.me);}});
+addEventListener('keyup',e=>{if(isK(e,'ArrowLeft','a'))KEYS.l=0;if(isK(e,'ArrowRight','d'))KEYS.r=0;if(isK(e,'ArrowDown','s'))KEYS.d=0;});
+for(const id of ['bL','bR','bBrake']){const b=$('#'+id);
   const on=e=>{e.preventDefault();BTN[id]=1;b.classList.add('on');try{b.setPointerCapture(e.pointerId);}catch(_){}};
   const off=()=>{BTN[id]=0;b.classList.remove('on');};
   b.addEventListener('pointerdown',on);b.addEventListener('pointerup',off);b.addEventListener('pointercancel',off);b.addEventListener('lostpointercapture',off);}
@@ -1245,7 +1388,7 @@ $('#jGo').onclick=studentJoin;
 document.querySelectorAll('.goMenu').forEach(b=>b.onclick=()=>show('menu'));
 const qs=new URLSearchParams(location.search);
 if(qs.get('room')&&FB_ON){$('#jCode').value=qs.get('room');show('join');}
-window.__G=G;window.__T=()=>T3;
+window.__G=G;window.__T=()=>T3;window.__dbg={Car,botInput,checkZones,buildTrack,QBANK,info:()=>({L,N,ZONES,boxes:BOXES.length})};
 </script>
 </body>
 </html>
